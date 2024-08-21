@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat Page</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Open Sans', sans-serif;
+            background-color: #f0f0f0;
+        }
+        .navbar {
+            background-color: #854ddf;
+            color: white;
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .navbar h1 {
+            margin: 0;
+            font-family: 'Montserrat', sans-serif;
+        }
+        .navbar .nav-buttons {
+            display: flex;
+            gap: 10px;
+        }
+        .navbar .nav-buttons button {
+            background-color: #ffffff;
+            color: #854ddf;
+            border: 1px solid #854ddf;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .navbar .nav-buttons button:hover {
+            background-color: #f3f3f3;
+        }
+        .chat-container {
+            width: 60%;
+            max-width: 800px;
+            margin: 20px auto;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            height: 600px;
+        }
+        .chat-box {
+            flex: 1;
+            overflow-y: auto;
+            padding: 20px;
+            border-bottom: 1px solid #ddd;
+        }
+        .message {
+            display: flex;
+            margin-bottom: 15px;
+        }
+        .message.user {
+            justify-content: flex-end;
+        }
+        .message.bot {
+            justify-content: flex-start;
+        }
+        .message .bubble {
+            max-width: 60%;
+            padding: 10px;
+            border-radius: 10px;
+            color: #fff;
+            font-size: 16px;
+        }
+        .message.user .bubble {
+            background-color: #007bff;
+        }
+        .message.bot .bubble {
+            background-color: #6c757d;
+        }
+        .chat-input {
+            display: flex;
+            padding: 10px;
+            border-top: 1px solid #ddd;
+            background-color: #fff;
+        }
+        .chat-input input {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        .chat-input button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-left: 10px;
+            font-size: 16px;
+        }
+        .chat-input button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <h1>Chat Bot</h1>
+        <div class="nav-buttons">
+            <button onclick="window.location.href='comment.html'">Feedback</button>
+            <button onclick="window.location.href='index.html'">Home Page</button>
+            <button onclick="signOut()">Sign Out</button>
+        </div>
+    </div>
+    <div class="chat-container">
+        <div class="chat-box" id="chatBox">
+            <!-- Messages will appear here -->
+        </div>
+        <div class="chat-input">
+            <input type="text" id="userMessage" placeholder="Type your message...">
+            <button onclick="sendMessage()">Send</button>
+        </div>
+    </div>
+
+    <script>
+        async function sendMessage() {
+            var userMessage = document.getElementById('userMessage').value;
+            if (userMessage.trim() === '') return;
+            
+            // Display user message
+            var chatBox = document.getElementById('chatBox');
+            var userMessageElement = document.createElement('div');
+            userMessageElement.className = 'message user';
+            userMessageElement.innerHTML = '<div class="bubble">' + userMessage + '</div>';
+            chatBox.appendChild(userMessageElement);
+
+            // Clear input field
+            document.getElementById('userMessage').value = '';
+
+            // Send message to Flask backend
+            try {
+                const response = await fetch('http://localhost:5000/chat', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ message: userMessage })
+                });
+                const data = await response.json();
+
+                // Display bot response
+                var botMessageElement = document.createElement('div');
+                botMessageElement.className = 'message bot';
+                botMessageElement.innerHTML = '<div class="bubble">' + data.response + '</div>';
+                chatBox.appendChild(botMessageElement);
+
+                // Scroll to the bottom of the chat box
+                chatBox.scrollTop = chatBox.scrollHeight;
+            } catch (error) {
+                console.error('Error:', error);
+                var botMessageElement = document.createElement('div');
+                botMessageElement.className = 'message bot';
+                botMessageElement.innerHTML = '<div class="bubble">Sorry, something went wrong. Please try again.</div>';
+                chatBox.appendChild(botMessageElement);
+            }
+        }
+
+        function signOut() {
+            // Replace with actual sign-out logic
+            alert('Signed out!');
+        }
+
+        // Add event listener to handle Enter key press
+        document.getElementById('userMessage').addEventListener('keypress', function(event) {
+            if (event.key === 'Enter') {
+                event.preventDefault(); // Prevent form submission or new line in input
+                sendMessage();
+            }
+        });
+        function signOut() {
+                // Replace with actual sign-out logic
+                event.preventDefault();
+                window.location.href = "index1.html";;
+            }
+    </script>
+</body>
+</html>

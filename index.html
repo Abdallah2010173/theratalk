@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mental Disorders Information</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Open+Sans:wght@400;600&display=swap"
+        rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Open Sans', sans-serif;
+            background-color: #f9f9f9;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .navbar {
+            background-color: #854ddf;
+            color: white;
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 41px; /* تحديد ارتفاع ثابت للـ navbar */
+            overflow: hidden; /* منع تجاوز المحتوى للـ navbar */
+        }
+
+        .navbar .nav-buttons {
+            display: flex;
+            gap: 10px;
+        }
+
+        .navbar .nav-buttons button {
+            background-color: #ffffff;
+            color: #854ddf;
+            border: 1px solid #854ddf;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .navbar .nav-buttons button:hover {
+            background-color: #f3f3f3;
+        }
+        .navbar img {
+            height: 50px; /* الارتفاع الثابت للشعار */
+            width: auto; /* الحفاظ على نسبة العرض إلى الارتفاع */
+            transform: scale(2.2); /* تكبير الحجم بنسبة 20% بعد ضبط الارتفاع */
+        }
+        .container {
+            width: 80%;
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .disorder-box {
+            background-color: #fff;
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .disorder-box h2 {
+            font-family: 'Montserrat', sans-serif;
+            margin-bottom: 10px;
+            color: #854ddf;
+        }
+
+        .disorder-box h3 {
+            margin-top: 10px;
+            margin-bottom: 10px;
+            font-size: 20px;
+            color: #333;
+        }
+
+        .disorder-box p {
+            margin-bottom: 10px;
+        }
+
+        .healing-box {
+            background-color: #f0f0f0;
+            padding: 15px;
+            border-radius: 5px;
+            font-size: 16px;
+            color: #555;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="navbar">
+        <img src="pic.png" alt="Logo">
+        <div class="nav-buttons">
+            <button onclick="window.location.href='chat.html'">Chatbot</button>
+            <button onclick="window.location.href='comment.html'">Feedback</button>
+            <button onclick="signOut()">Sign Out</button>
+        </div>
+    </div>
+    <div class="container">
+        <div class="disorder-box">
+            <h2>Schizophrenia</h2>
+            <p><strong>Overview:</strong> Schizophrenia is a chronic and severe mental disorder that affects how a
+                person thinks, feels, and behaves. It is characterized by distorted thinking, perception, emotions,
+                language, sense of self, and behavior.</p>
+            <h3>Symptoms:</h3>
+            <ul>
+                <li>Delusions (false beliefs)</li>
+                <li>Hallucinations (hearing or seeing things that are not there)</li>
+                <li>Disorganized thinking and speech</li>
+                <li>Flat affect (reduced expression of emotions)</li>
+            </ul>
+            <h3>Healing:</h3>
+            <div class="healing-box">
+                Treatment usually involves antipsychotic medications, therapy, and support services. Managing symptoms
+                and improving quality of life requires ongoing treatment and support.
+            </div>
+        </div>
+
+        <div class="disorder-box">
+            <h2>Bipolar Disorder</h2>
+            <p><strong>Overview:</strong> Bipolar disorder is a mental illness characterized by extreme mood swings that
+                include emotional highs (mania or hypomania) and lows (depression).</p>
+            <h3>Symptoms:</h3>
+            <ul>
+                <li>Manic or hypomanic episodes: elevated mood, increased energy, reduced need for sleep, and risky
+                    behavior</li>
+                <li>Depressive episodes: low mood, fatigue, feelings of worthlessness, and loss of interest in
+                    activities</li>
+            </ul>
+            <h3>Healing:</h3>
+            <div class="healing-box">
+                Treatment often includes a combination of mood stabilizers, psychotherapy, and lifestyle adjustments to
+                manage symptoms and prevent episodes.
+            </div>
+        </div>
+        <div class="disorder-box">
+            <h2>Major Depressive Disorder</h2>
+            <p><strong>Overview:</strong> A mood disorder causing persistent feelings of sadness, loss of interest in
+                activities, and other symptoms that interfere with daily functioning.</p>
+            <h3>Symptoms:</h3>
+            <ul>
+                <li>Persistent sad or empty mood</li>
+                <li>Loss of interest in activities</li>
+                <li>Changes in weight or appetite</li>
+                <li>Difficulty sleeping or oversleeping</li>
+            </ul>
+            <h3>Healing:</h3>
+            <div class="healing-box">
+                Treatment often includes a combination of antidepressants, psychotherapy, and lifestyle changes.
+            </div>
+        </div>
+
+        <div class="disorder-box">
+            <h2>Obsessive-Compulsive Disorder (OCD)</h2>
+            <p><strong>Overview:</strong> A disorder characterized by unwanted, persistent thoughts (obsessions) and
+                repetitive behaviors or mental acts (compulsions).</p>
+            <h3>Symptoms:</h3>
+            <ul>
+                <li>Obsessions: Recurrent, intrusive thoughts causing anxiety.</li>
+                <li>Compulsions: Repetitive behaviors performed to alleviate anxiety.</li>
+            </ul>
+            <h3>Healing:</h3>
+            <div class="healing-box">
+                Cognitive-behavioral therapy (CBT) and medications.
+            </div>
+        </div>
+
+        <div class="disorder-box">
+            <h2>Post-Traumatic Stress Disorder (PTSD)</h2>
+            <p><strong>Overview:</strong> A mental health condition triggered by experiencing or witnessing a traumatic
+                event.</p>
+            <h3>Symptoms:</h3>
+            <ul>
+                <li>Flashbacks or intrusive thoughts</li>
+                <li>Nightmares</li>
+                <li>Severe anxiety</li>
+                <li>Avoidance of reminders of the trauma</li>
+            </ul>
+            <h3>Healing:</h3>
+            <div class="healing-box">
+                Therapy (especially trauma-focused), medications, and support.
+            </div>
+        </div>
+
+        <div class="disorder-box">
+            <h2>Panic Disorder</h2>
+            <p><strong>Overview:</strong> A type of anxiety disorder characterized by recurring and unexpected panic
+                attacks.</p>
+            <h3>Symptoms:</h3>
+            <ul>
+                <li>Rapid heart rate</li>
+                <li>Sweating</li>
+                <li>Trembling</li>
+                <li>Shortness of breath</li>
+            </ul>
+            <h3>Healing:</h3>
+            <div class="healing-box">
+                Therapy, medications, and lifestyle changes.
+            </div>
+        </div>
+
+        <div class="disorder-box">
+            <h2>Social Anxiety Disorder</h2>
+            <p><strong>Overview:</strong> A disorder characterized by intense fear of social situations where one might
+                be judged or embarrassed.</p>
+            <h3>Symptoms:</h3>
+            <ul>
+                <li>Extreme fear of social interactions</li>
+                <li>Avoidance of social situations</li>
+                <li>Physical symptoms such as sweating or trembling</li>
+            </ul>
+            <h3>Healing:</h3>
+            <div class="healing-box">
+                Therapy (especially CBT), medications, and support.
+            </div>
+        </div>
+
+        <div class="disorder-box">
+            <h2>Attention-Deficit/Hyperactivity Disorder (ADHD)</h2>
+            <p><strong>Overview:</strong> A neurodevelopmental disorder characterized by inattention, hyperactivity, and
+                impulsiveness.</p>
+            <h3>Symptoms:</h3>
+            <ul>
+                <li>Difficulty maintaining attention</li>
+                <li>Impulsivity</li>
+                <li>Hyperactivity</li>
+            </ul>
+            <h3>Healing:</h3>
+            <div class="healing-box">
+                Medications, behavioral therapy, and lifestyle adjustments.
+            </div>
+        </div>
+
+        <div class="disorder-box">
+            <h2>Autism Spectrum Disorder (ASD)</h2>
+            <p><strong>Overview:</strong> A developmental disorder affecting communication, behavior, and social
+                interaction.</p>
+            <h3>Symptoms:</h3>
+            <ul>
+                <li>Difficulty with social interactions</li>
+                <li>Repetitive behaviors</li>
+                <li>Restricted interests</li>
+            </ul>
+            <h3>Healing:</h3>
+            <div class="healing-box">
+                Behavioral therapy, educational support, and sometimes medications.
+            </div>
+        </div>
+
+        <div class="disorder-box">
+            <h2>Eating Disorders</h2>
+            <p><strong>Overview:</strong> Disorders characterized by unhealthy eating behaviors and distorted body
+                image.</p>
+            <h3>Types:</h3>
+            <ul>
+                <li>Anorexia nervosa: Restrictive eating and extreme weight loss.</li>
+                <li>Bulimia nervosa: Binge eating followed by purging.</li>
+                <li>Binge-eating disorder: Recurrent episodes of eating large quantities of food.</li>
+            </ul>
+            <h3>Healing:</h3>
+            <div class="healing-box">
+                Therapy, nutritional counseling, and sometimes medications.
+            </div>
+        </div>
+
+        <script>
+            function signOut() {
+                // Replace with actual sign-out logic
+                event.preventDefault();
+                window.location.href = "index1.html";;
+            }
+        </script>
+</body>
+
+</html>

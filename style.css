@@ -1,0 +1,140 @@
+/* Global Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    color: #333;
+    background-color: #f4f4f9;
+}
+
+header {
+    background: #6a0dad; /* Darker purple for header */
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+header h1 {
+    margin: 0;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+nav ul.left-nav {
+    flex: 1;
+}
+
+nav ul.right-nav {
+    display: flex;
+    margin-left: auto;
+}
+
+nav ul.right-nav li {
+    margin-right: 20px; /* Space between "Sign In" and "Sign Up" */
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 10px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+nav ul li a:hover {
+    text-decoration: none;
+}
+
+main {
+    padding: 20px;
+    max-width: 1200px;
+    margin: auto;
+}
+
+section {
+    margin-bottom: 40px;
+}
+
+h2 {
+    color: #4a148c; /* Medium purple for section titles */
+    border-bottom: 2px solid #7b1fa2; /* Lighter purple border */
+    padding-bottom: 10px;
+}
+
+.illness {
+    background: #e1bee7; /* Light purple background for illness sections */
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.illness h3 {
+    color: #8e24aa; /* Slightly darker purple for illness headings */
+}
+
+ul {
+    list-style-type: disc;
+    padding-left: 20px;
+}
+
+.btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background: #9c27b0; /* Purple button background */
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.btn:hover {
+    background: #7b1fa2; /* Darker purple on hover */
+}
+
+footer {
+    background: #6a0dad;
+    color: white;
+    text-align: center;
+    padding: 10px;
+}
+
+.button-container {
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    margin: 10px 0;
+}
+
+.button-container a {
+    text-align: end;
+    padding: 10px 40px;
+    margin: 5px 0;
+    border-radius: 100px;
+    background-color: #e1bee7;
+    color: #ffffff;
+    text-decoration: none;
+    width: 100px; 
+}
+
+.button-container a:hover {
+    background-color: #4a148c;
+}
+
+header nav {
+    display: flex;
+    align-items: center;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 24px;
+}

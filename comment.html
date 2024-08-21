@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comment Form</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Open Sans', sans-serif;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+        .navbar {
+            background-color: #854ddf;
+            color: white;
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+        }
+        .navbar h1 {
+            margin: 0;
+            font-family: 'Montserrat', sans-serif;
+        }
+        .navbar .nav-buttons {
+            display: flex;
+            gap: 10px;
+        }
+        .navbar .nav-buttons button {
+            background-color: #ffffff;
+            color: #854ddf;
+            border: 1px solid #854ddf;
+            padding: 10px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .navbar .nav-buttons button:hover {
+            background-color: #f3f3f3;
+        }
+        .container {
+            width: 50%;
+            margin: 40px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .container h2 {
+            font-family: 'Montserrat', sans-serif;
+            color: #854ddf;
+            margin-bottom: 20px;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+        .form-group textarea {
+            height: 150px;
+            resize: vertical;
+        }
+        .form-group button {
+            background-color: #854ddf;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .form-group button:hover {
+            background-color: #6a3fb2;
+        }
+        #thank-you-message {
+            display: none;
+            color: green;
+            margin-top: 1em;
+            text-align: center;
+        }
+        .comment {
+            border: 2px solid #4a148c;
+            padding: 1em;
+            margin: 1em 0;
+            border-radius: 8px;
+            background-color: #f3e5f5;
+        }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <h1>Feedback Form</h1>
+        <div class="nav-buttons">
+            <button onclick="window.location.href='index.html'">Home Page</button>
+            <button onclick="window.location.href='chat.html'">Chatbot</button>
+            <button onclick="signOut()">Sign Out</button>
+        </div>
+    </div>
+    <div class="container">
+        <h2>Tell us what you think...</h2>
+        <form id="comment-form">
+            <div class="form-group">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="comment">Comment:</label>
+                <textarea id="comment-text" name="comment" required></textarea>
+            </div>
+            <div class="form-group">
+                <button type="submit">Submit</button>
+            </div>
+        </form>
+        <div id="thank-you-message">Thank you for your comment!</div>
+        <div id="comment-list"></div>
+    </div>
+
+    <script>
+        const commentForm = document.getElementById('comment-form');
+        const commentList = document.getElementById('comment-list');
+        const thankYouMessage = document.getElementById('thank-you-message');
+
+        commentForm.addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const name = document.getElementById('name').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const comment = document.getElementById('comment-text').value.trim();
+
+            if (name === '' || email === '' || comment === '') {
+                alert('Please fill out all fields.');
+                return;
+            }
+
+            if (!isValidEmail(email)) {
+                alert('Please enter a valid email address.');
+                return;
+            }
+
+            const commentHTML = `
+                <div class="comment">
+                    <p>${comment}</p>
+                    <p><strong>${name}</strong><br>
+                    <a href="mailto:${email}">${email}</a></p>
+                </div>
+            `;
+
+            commentList.innerHTML += commentHTML;
+            commentForm.reset();
+
+            showThankYouMessage();
+        });
+
+        function showThankYouMessage() {
+            thankYouMessage.style.display = 'block';
+            setTimeout(function() {
+                thankYouMessage.style.display = 'none';
+            }, 3000);
+        }
+
+        function isValidEmail(email) {
+            return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+        }
+
+        function signOut() {
+            // Replace with actual sign-out logic
+            alert('Signed out!');
+        }
+        function signOut() {
+                // Replace with actual sign-out logic
+                event.preventDefault();
+                window.location.href = "index1.html";;
+            }
+    </script>
+</body>
+</html>
